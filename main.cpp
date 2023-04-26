@@ -3,6 +3,7 @@
 
 #include "Heure.h"
 #include "Date.h"
+#include "Agenda.h"
 
 int main() {
 
@@ -10,6 +11,9 @@ int main() {
     Heure h1 = Heure(0,0,82800);
     std::cout<<h1<<std::endl;
     std::cout<<date1<<std::endl;
+
+
+    std::map<Date, std::map<Heure, std::string>> rendezVousTest;
 
 
 }
