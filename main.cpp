@@ -15,16 +15,15 @@ int main() {
 
     rendezVousTest[d1][h1] = "Reunion";
     rendezVousTest[d1][h2] = "Dejeuner d'affaires";
-    rendezVousTest[d2][h1] = "Rendez-vous chez le dentiste";
+
+    Agenda agenda(1,"Mon 1er Agenda",rendezVousTest);
+
+    agenda.affichageRendezVous();
+
+    agenda.ajouterRendezVous(d2,h1,"Dentiste");
 
 
-    for (auto& date : rendezVousTest) {
-        std::cout << "Rendez-vous pour la date " << date.first << ":" << std::endl;
-        for (auto& heure : date.second) {
-            std::cout << "\tHeure " << heure.first << ": " << heure.second << std::endl;
-        }
-    }
-
+    agenda.affichageRendezVous();
 
 
 

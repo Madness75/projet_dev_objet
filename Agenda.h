@@ -19,7 +19,9 @@ protected:
 public:
     Agenda(int numero, const std::string &nom, const std::map<Date, std::map<Heure, std::string>> &rendezVous);
 
-    Agenda ajouterRendezVous(std::map<Date, std::map<Heure, std::string>> rendezVousAjoute) ;
+    std::map<Date, std::map<Heure, std::string>> ajouterRendezVous(Date date,Heure heure,std::string note);
+
+    std::string affichageRendezVous();
 
 };
 

@@ -10,16 +10,20 @@
 Agenda::Agenda(int numero, const std::string &nom, const std::map<Date, std::map<Heure, std::string>> &rendezVous)
         : numero(numero), nom(nom), rendezVous(rendezVous) {}
 
+std::map<Date, std::map<Heure, std::string>> Agenda::ajouterRendezVous(Date date, Heure heure, std::string note) {
+    rendezVous[date][heure] = note;
+    return rendezVous;
+}
 
-Agenda Agenda::ajouterRendezVous(std::map<Date, std::map<Heure, std::string>> rendezVousAjoute) {
-    for (auto& rdv : rendezVousAjoute) {
-        Date date = rdv.first;
-        std::map<Heure, std::string> rdvHeure = rdv.second;
-        for (auto& rdvH : rdvHeure) {
-            Heure heure = rdvH.first;
-            std::string note = rdvH.second;
-
+std::string Agenda::affichageRendezVous() {
+    for (auto& date : rendezVous) {
+        std::cout << "Rendez-vous pour la date " << date.first << ":" << std::endl;
+        for (auto& heure : date.second) {
+            std::cout << "\tHeure " << heure.first << ": " << heure.second << std::endl;
         }
     }
-    return *this;
 }
+
+
+
+
