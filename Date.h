@@ -6,6 +6,8 @@
 #define PROJETFINAL_Date_H
 
 
+#include <ostream>
+
 class Date {
 protected:
     int jour;
@@ -39,6 +41,7 @@ public:
 
     bool operator >= (const Date&) const;
 
+    friend std::ostream &operator<<(std::ostream &os, const Date &date);
 };
 
 

@@ -90,6 +90,11 @@ bool Date::operator>=(const Date & date) const {
     return *this > date;
 }
 
+std::ostream &operator<<(std::ostream &os, const Date &date) {
+    os << "jour: " << date.jour << " mois: " << date.mois << " annee: " << date.annee;
+    return os;
+}
+
 
 
 
