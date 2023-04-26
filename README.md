@@ -2,4 +2,4 @@
 
 Projet 2022-2023 Developpement objet en c++
 
-Le code s'éxecute à partir du main
+Le code s'exécute à partir de la main, les exemples des classes sont déjà écrites et doivent être décommentés
