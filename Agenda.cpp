@@ -6,7 +6,10 @@
 #include <iostream>
 #include <map>
 
-Agenda::Agenda(const std::map<Date, std::map<Heure, std::string>> &rendezVous) : rendezVous(rendezVous) {}
+
+Agenda::Agenda(int numero, const std::string &nom, const std::map<Date, std::map<Heure, std::string>> &rendezVous)
+        : numero(numero), nom(nom), rendezVous(rendezVous) {}
+
 
 Agenda Agenda::ajouterRendezVous(std::map<Date, std::map<Heure, std::string>> rendezVousAjoute) {
     for (auto& rdv : rendezVousAjoute) {
@@ -15,7 +18,7 @@ Agenda Agenda::ajouterRendezVous(std::map<Date, std::map<Heure, std::string>> re
         for (auto& rdvH : rdvHeure) {
             Heure heure = rdvH.first;
             std::string note = rdvH.second;
-            rendezVous[date][heure] = note;
+
         }
     }
     return *this;

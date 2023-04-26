@@ -27,4 +27,28 @@ std::ostream &operator<<(std::ostream &os, const Heure &heure) {
     return os;
 }
 
+bool Heure::operator<(const Heure &rhs) const {
+    if (heure < rhs.heure)
+        return true;
+    if (rhs.heure < heure)
+        return false;
+    if (minutes < rhs.minutes)
+        return true;
+    if (rhs.minutes < minutes)
+        return false;
+    return seconde < rhs.seconde;
+}
+
+bool Heure::operator>(const Heure &rhs) const {
+    return rhs < *this;
+}
+
+bool Heure::operator<=(const Heure &rhs) const {
+    return !(rhs < *this);
+}
+
+bool Heure::operator>=(const Heure &rhs) const {
+    return !(*this < rhs);
+}
+
 

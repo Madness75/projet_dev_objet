@@ -16,9 +16,15 @@ protected:
 public:
     Heure(int heure, int minute, int seconde);
 
-
-
     friend std::ostream &operator<<(std::ostream &os, const Heure &heure);
+
+    bool operator<(const Heure &rhs) const;
+
+    bool operator>(const Heure &rhs) const;
+
+    bool operator<=(const Heure &rhs) const;
+
+    bool operator>=(const Heure &rhs) const;
 };
 
 
