@@ -5,10 +5,25 @@
 #include "Date.h"
 #include "Agenda.h"
 
+void printMap(const std::map<int, std::map<Date, std::map<Heure, std::string>>>& myMap) {
+    for (const auto& outerPair : myMap) {
+        std::cout << "Index " << outerPair.first << ":\n";
+        for (const auto& middlePair : outerPair.second) {
+            std::cout << "\tDate " << middlePair.first << ":\n";
+            for (const auto& innerPair : middlePair.second) {
+                std::cout << "\t\tHeure " << innerPair.first << ": " << innerPair.second << "\n";
+            }
+        }
+    }
+}
+
+
+
 int main() {
 
     Date d1(26, 4, 2023);
     Date d2(27, 4, 2023);
+    Date d3(24,1,2022);
     Heure h1(10, 0,0);
     Heure h2(14, 30,0);
     std::map<Date, std::map<Heure, std::string>> rendezVousTest;
@@ -18,13 +33,17 @@ int main() {
 
     Agenda agenda(1,"Mon 1er Agenda",rendezVousTest);
 
-    agenda.affichageRendezVous();
+    //agenda.affichageRendezVous();
 
     agenda.ajouterRendezVous(d2,h1,"Dentiste");
+    agenda.ajouterRendezVous(d3,h1,"Test");
 
 
-    agenda.affichageRendezVous();
+    //agenda.affichageRendezVous();
+
+    printMap(agenda.listeTriee());
 
 
 
+    return 0;
 }

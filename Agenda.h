@@ -23,6 +23,9 @@ public:
 
     std::string affichageRendezVous();
 
+    std::map<int, std::map<Date, std::map<Heure, std::string>>> listeTriee();
+
+
 };
 
 
