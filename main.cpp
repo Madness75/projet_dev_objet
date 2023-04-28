@@ -17,6 +17,20 @@ void printMap(const std::map<int, std::map<Date, std::map<Heure, std::string>>>&
     }
 }
 
+void printAtIndex(const std::map<int, std::map<Date, std::map<Heure, std::string>>>& myMap,int index){
+    for (const auto& outerPair: myMap){
+        if (outerPair.first == index){
+            std::cout << "Index " << outerPair.first << ":\n";
+            for (const auto& middlePair : outerPair.second) {
+                std::cout << "\tDate " << middlePair.first << ":\n";
+                for (const auto& innerPair : middlePair.second) {
+                    std::cout << "\t\tHeure " << innerPair.first << ": " << innerPair.second << "\n";
+                }
+            }
+        }
+    }
+}
+
 
 
 int main() {
@@ -41,9 +55,10 @@ int main() {
 
     //agenda.affichageRendezVous();
 
-    printMap(agenda.listeTriee());
+    //printMap(agenda.listeTriee());
+    std::map<int, std::map<Date, std::map<Heure, std::string>>> map_trie =agenda.listeTriee();
 
-
+    printAtIndex(map_trie,1);
 
     return 0;
 }
