@@ -4,7 +4,7 @@
 
 #include "Date.h"
 
-Date::Date(const int& jour, const int& mois,const int& annee) : jour(jour), mois(mois), annee(annee) {
+Date::Date(int jour, int mois,int annee) : jour(jour), mois(mois), annee(annee) {
 
 }
 
@@ -93,6 +93,58 @@ bool Date::operator>=(const Date & date) const {
 std::ostream &operator<<(std::ostream &os, const Date &date) {
     os << "jour: " << date.jour << " mois: " << date.mois << " annee: " << date.annee;
     return os;
+}
+
+void Date::reporter_decaler(int decalage) {
+    jour+=decalage;
+
+    int nbJours = 0;
+    switch (mois) {
+        case 1: // Janvier
+        case 3: // Mars
+        case 5: // Mai
+        case 7: // Juillet
+        case 8: // Août
+        case 10: // Octobre
+        case 12: // Décembre
+            nbJours = 31;
+            break;
+        case 4: // Avril
+        case 6: // Juin
+        case 9: // Septembre
+        case 11: // Novembre
+            nbJours = 30;
+            break;
+        case 2: // Février
+            if ((annee % 4 == 0 && annee % 100 != 0) || annee % 400 == 0) {
+                // Année bissextile
+                nbJours = 29;
+            } else {
+                nbJours = 28;
+            }
+            break;
+
+    }
+
+    if (jour > nbJours) {
+        // Ajouter une année et conserver le reste
+        int reste = jour % nbJours;
+        mois += jour / nbJours;
+        jour = reste;
+    }
+
+    if(jour<1){
+        int reste = jour %nbJours;
+        mois = jour / nbJours;
+        jour = reste;
+    }
+    // Si le mois est invalide
+    if (mois > 12) {
+        // Ajouter une année et conserver le reste
+        int reste = mois % 12;
+        annee += mois / 12;
+        mois = reste;
+    }
 }
 
 

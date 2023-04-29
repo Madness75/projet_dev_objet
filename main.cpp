@@ -58,7 +58,12 @@ int main() {
     //printMap(agenda.listeTriee());
     std::map<int, std::map<Date, std::map<Heure, std::string>>> map_trie =agenda.listeTriee();
 
-    printAtIndex(map_trie,1);
+    //printAtIndex(map_trie,1);
+
+    std::cout<<d1<<std::endl;
+    d1.reporter_decaler(-30);
+    std::cout<<d1<<std::endl;
+
 
     return 0;
 }
