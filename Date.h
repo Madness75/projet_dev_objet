@@ -46,6 +46,8 @@ public:
 
     void reporter_decaler(int decalage);
 
+    int nbJoursParMois(int mois) const;
+
     friend std::ostream &operator<<(std::ostream &os, const Date &date);
 };
 
