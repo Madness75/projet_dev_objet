@@ -125,7 +125,6 @@ void Date::reporter_decaler(int decalage) {
             break;
 
     }
-
     if (jour > nbJours) {
         // Ajouter une année et conserver le reste
         int reste = jour % nbJours;

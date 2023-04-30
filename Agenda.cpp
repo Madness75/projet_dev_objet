@@ -37,10 +37,7 @@ std::map<int, std::map<Date, std::map<Heure, std::string>>> Agenda::listeTriee()
             i++;
         }
     }
-
     return map_finale;
-
-
 }
 
 void Agenda::supprimerRendezVous(Date date, Heure heure) {
