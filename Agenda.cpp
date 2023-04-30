@@ -4,6 +4,8 @@
 
 #include "Agenda.h"
 #include <iostream>
+#include <fstream>
+
 #include <map>
 #include <bits/stdc++.h>
 
@@ -88,6 +90,24 @@ void Agenda::changeHeureRendezVous(Date date_a_chercher, Heure heure_a_chercher,
         std::cout << "Aucun rendez-vous prévu pour cette date." << std::endl;
     }
 }
+
+void Agenda::sauvegarder() {
+    std::ofstream fichier_agenda("/Sauvegardes_Agenda/agenda.txt");
+    if (fichier_agenda.is_open()) {
+        fichier_agenda << numero << std::endl;
+        fichier_agenda << nom << std::endl;
+        for (auto& rdv : rendezVous) {
+            fichier_agenda << rdv.first << std::endl; // sauvegarder la date
+            for (auto& heure_note : rdv.second) {
+                fichier_agenda << heure_note.first << " " << heure_note.second << std::endl; // sauvegarder l'heure et la note
+            }
+        }
+    }
+    fichier_agenda.close();
+}
+
+
+
 
 
 
