@@ -140,7 +140,7 @@ int main() {
                 break;
             case 7:
                 agenda.sauvegarder();
-                std::cout<<"Lagenda a ete sauvegarder dans agenda.txt";
+                std::cout<<"L agenda a ete sauvegarder dans agenda.txt";
                 break;
             case 8:
                 std::cout<<"Chargement de agenda a partir de agenda.txt";
