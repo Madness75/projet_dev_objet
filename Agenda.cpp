@@ -69,6 +69,25 @@ void Agenda::changeDateRendezVous(Date date_a_chercher, Heure heure, std::string
 
 }
 
+void Agenda::changeHeureRendezVous(Date date_a_chercher, Heure heure_a_chercher, Heure nouvelle_heure, std::string note) {
+    // Vérifier si la date est présente dans la map
+    if (rendezVous.find(date_a_chercher) != rendezVous.end()) {
+        std::map<Heure, std::string> &rendezVousDate = rendezVous[date_a_chercher];
+        // Vérifier si l'heure est présente dans la map de rendez-vous pour cette date
+        if (rendezVousDate.find(heure_a_chercher) != rendezVousDate.end()) {
+            // Récupérer la note correspondante à l'heure à modifier
+            std::string copie_note = rendezVousDate[heure_a_chercher];
+            // Supprimer le rendez-vous avec l'heure à modifier
+            rendezVousDate.erase(heure_a_chercher);
+            // Ajouter le rendez-vous avec la nouvelle heure et la même note
+            rendezVousDate[nouvelle_heure] = copie_note;
+        } else {
+            std::cout << "Le rendez-vous n'existe pas pour cette heure." << std::endl;
+        }
+    } else {
+        std::cout << "Aucun rendez-vous prévu pour cette date." << std::endl;
+    }
+}
 
 
 

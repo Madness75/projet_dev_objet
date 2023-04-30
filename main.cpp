@@ -57,12 +57,14 @@ int main() {
     //printMap(agenda.listeTriee());
     std::map<int, std::map<Date, std::map<Heure, std::string>>> map_trie = agenda.listeTriee();
 
-    Date d4 = d1;
+    //agenda.changeDateRendezVous(d1, h1, "Reunion", 10);
 
-    agenda.changeDateRendezVous(d1, h1, "Reunion", 10);
+
+
+    Heure nouvelle_Heure_test(12,15,15);
+    agenda.changeHeureRendezVous(d1,h1,nouvelle_Heure_test,"Reunion");
+
 
     agenda.affichageRendezVous();
-
-
     return 0;
 }
