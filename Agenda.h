@@ -31,6 +31,8 @@ public:
 
     void changeHeureRendezVous(Date date_a_chercher, Heure heure_a_chercher, Heure nouvelle_heure, std::string note);
 
+
+
 };
 
 

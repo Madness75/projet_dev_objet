@@ -57,7 +57,7 @@ void Agenda::supprimerRendezVous(Date date, Heure heure) {
 void Agenda::changeDateRendezVous(Date date_a_chercher, Heure heure, std::string note, int decalage) {
 
 
-    if (rendezVous.find(date_a_chercher) == rendezVous.end()) {
+    if (rendezVous.find(date_a_chercher) == rendezVous.end()) { //Verifie si on trouve le rendez-vous
         rendezVous[date_a_chercher][heure] = note;
     } else {
         std::map<Heure, std::string> &it1 = rendezVous.find(date_a_chercher)->second;
@@ -88,6 +88,9 @@ void Agenda::changeHeureRendezVous(Date date_a_chercher, Heure heure_a_chercher,
         std::cout << "Aucun rendez-vous prévu pour cette date." << std::endl;
     }
 }
+
+
+
 
 
 
