@@ -5,15 +5,15 @@
 #include "Heure.h"
 
 Heure::Heure(int _heure, int _minutes, int _seconde) {
-    if (_seconde>=60){
-        _minutes= _seconde/60;
-        _seconde%=60;
+    if (_seconde >= 60) {
+        _minutes = _seconde / 60;
+        _seconde %= 60;
     }
-    if (_minutes>=60){
-        _heure = _minutes/60;
-        _minutes%=60;
+    if (_minutes >= 60) {
+        _heure = _minutes / 60;
+        _minutes %= 60;
     }
-    if (_heure>=24){
+    if (_heure >= 24) {
         _heure %= 24;
 
     }

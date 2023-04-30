@@ -14,7 +14,8 @@ protected:
     int mois;
     int annee;
 public:
-    Date(int jour,int mois, int annee);
+    Date(int jour, int mois, int annee);
+
     bool valid() const;
 
     int getJour() const;
@@ -29,19 +30,21 @@ public:
 
     void setAnnee(int annee);
 
-    bool operator == (const Date&) const;
+    bool operator==(const Date &) const;
 
-    bool operator != (const Date&)const;
+    bool operator!=(const Date &) const;
 
-    bool operator < (const Date&) const;
+    bool operator<(const Date &) const;
 
-    bool operator > (const Date&) const;
+    bool operator>(const Date &) const;
 
-    bool operator<= (const Date&) const;
+    bool operator<=(const Date &) const;
 
-    bool operator >= (const Date&) const;
+    bool operator>=(const Date &) const;
 
-    void reporter_decaler(int decalage) ;
+    Date &operator=(const Date &other);
+
+    void reporter_decaler(int decalage);
 
     friend std::ostream &operator<<(std::ostream &os, const Date &date);
 };

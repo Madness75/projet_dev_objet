@@ -4,23 +4,23 @@
 
 #include "Date.h"
 
-Date::Date(int jour, int mois,int annee) : jour(jour), mois(mois), annee(annee) {
+Date::Date(int jour, int mois, int annee) : jour(jour), mois(mois), annee(annee) {
 
 }
 
 bool Date::valid() const {
-    if (annee <0) return false;
-    if (mois >12 || mois <1) return false;
+    if (annee < 0) return false;
+    if (mois > 12 || mois < 1) return false;
     if (jour > 31 || jour < 1) { return false; }
-    if ((jour ==31 &&
-         ( mois ==2 || mois ==4 || mois ==6 || mois ==9 || mois ==11) ) )
+    if ((jour == 31 &&
+         (mois == 2 || mois == 4 || mois == 6 || mois == 9 || mois == 11)))
         return false;
-    if ( jour ==30 && mois ==2) return false;
-    if ( annee <2000){
-        if ((jour ==29 && mois ==2) && !((annee -1900)%4==0)) return false;
+    if (jour == 30 && mois == 2) return false;
+    if (annee < 2000) {
+        if ((jour == 29 && mois == 2) && !((annee - 1900) % 4 == 0)) return false;
     };
-    if ( annee >2000){
-        if ((jour ==29 && mois ==2) && !((annee -2000)%4==0)) return false;
+    if (annee > 2000) {
+        if ((jour == 29 && mois == 2) && !((annee - 2000) % 4 == 0)) return false;
     };
     return true;
 
@@ -50,7 +50,7 @@ void Date::setAnnee(int annee) {
     Date::annee = annee;
 }
 
-bool Date::operator==(const Date & date) const {
+bool Date::operator==(const Date &date) const {
     if (!valid() || !date.valid()) {
         return false;
     }
@@ -58,11 +58,11 @@ bool Date::operator==(const Date & date) const {
     return jour == date.jour && mois == date.mois && annee == date.annee;
 }
 
-bool Date::operator!=(const Date & date) const {
+bool Date::operator!=(const Date &date) const {
     return !(*this == date);
 }
 
-bool Date::operator<(const Date& date) const {
+bool Date::operator<(const Date &date) const {
     if (annee < date.annee) {
         return true;
     } else if (annee == date.annee && mois < date.mois) {
@@ -74,18 +74,18 @@ bool Date::operator<(const Date& date) const {
     }
 }
 
-bool Date::operator>(const Date & date) const {
+bool Date::operator>(const Date &date) const {
     if (*this == date) return false;
-    if (!(*this<date)) return false;
+    if (!(*this < date)) return false;
     return true;
 }
 
-bool Date::operator <= (const Date& date) const{
+bool Date::operator<=(const Date &date) const {
     if (*this == date) return true;
-    return *this <date;
+    return *this < date;
 }
 
-bool Date::operator>=(const Date & date) const {
+bool Date::operator>=(const Date &date) const {
     if (*this == date) return true;
     return *this > date;
 }
@@ -96,7 +96,7 @@ std::ostream &operator<<(std::ostream &os, const Date &date) {
 }
 
 void Date::reporter_decaler(int decalage) {
-    jour+=decalage;
+    jour += decalage;
 
     int nbJours = 0;
     switch (mois) {
@@ -133,8 +133,8 @@ void Date::reporter_decaler(int decalage) {
         jour = reste;
     }
 
-    if(jour<1){
-        int reste = jour %nbJours;
+    if (jour < 1) {
+        int reste = jour % nbJours;
         mois = jour / nbJours;
         jour = reste;
     }
@@ -145,6 +145,16 @@ void Date::reporter_decaler(int decalage) {
         annee += mois / 12;
         mois = reste;
     }
+
+}
+
+Date &Date::operator=(const Date &other) {
+    if (this != &other) {
+        this->jour = other.jour;
+        this->mois = other.mois;
+        this->annee = other.annee;
+    }
+    return *this;
 }
 
 

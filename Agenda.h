@@ -19,12 +19,15 @@ protected:
 public:
     Agenda(int numero, const std::string &nom, const std::map<Date, std::map<Heure, std::string>> &rendezVous);
 
-    std::map<Date, std::map<Heure, std::string>> ajouterRendezVous(Date date,Heure heure,std::string note);
+    std::map<Date, std::map<Heure, std::string>> ajouterRendezVous(Date date, Heure heure, std::string note);
 
-    std::string affichageRendezVous();
+    void affichageRendezVous();
 
     std::map<int, std::map<Date, std::map<Heure, std::string>>> listeTriee();
 
+    void supprimerRendezVous(Date date, Heure heure);
+
+    void changeDateRendezVous(Date date_a_chercher, Heure heure, std::string note, int decalage);
 
 };
 
