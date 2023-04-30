@@ -61,7 +61,7 @@ int main() {
     //printAtIndex(map_trie,1);
 
     std::cout<<d1<<std::endl;
-    d1.reporter_decaler(-30);
+    d1.reporter_decaler(-125);
     std::cout<<d1<<std::endl;
 
 

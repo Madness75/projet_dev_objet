@@ -22,9 +22,9 @@ std::map<Date, std::map<Heure, std::string>> Agenda::ajouterRendezVous(Date date
 
 std::string Agenda::affichageRendezVous() {
     for (auto& date : rendezVous) {
-        std::cout << "Rendez-vous pour la date " << date.first << ":" << std::endl;
+        std::cout << "Rendez-vous pour la date : " << date.first << ":" << std::endl;
         for (auto& heure : date.second) {
-            std::cout << "\tHeure " << heure.first << ": " << heure.second << std::endl;
+            std::cout << "\tHoraire du rendez-vous -> " << heure.first << " Note : " << heure.second << std::endl;
         }
     }
 }
